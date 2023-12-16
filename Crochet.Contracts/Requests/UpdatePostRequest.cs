@@ -1,6 +1,6 @@
 namespace Crochet.Contracts.Requests
 {
-    public class UpdateProjectRequest
+    public class UpdatePostRequest
     {
         public required string Title { get; init; }
         public required string Description { get; init; }

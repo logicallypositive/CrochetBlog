@@ -7,7 +7,7 @@ namespace Crochet.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddSingleton<IProjectRepository, ProjectRepository>();
+            services.AddSingleton<IPostRepository, PostRepository>();
             return services;
         }
     }

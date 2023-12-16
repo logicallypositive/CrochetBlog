@@ -18,10 +18,6 @@ Crochet.Contracts
 - Useful for anyone with anyone who wants to use the api
 - Always in sync with exposed endpoints
 
-### Crochet.Contracts
-
-- Contains 
-
 
 ### Create
 

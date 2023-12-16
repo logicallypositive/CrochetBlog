@@ -6,45 +6,48 @@ namespace Crochet.Api.Mapping
 {
     public static class ContractMapping
     {
-        public static Project MapToProject(this CreateProjectRequest request)
+        public static Post MapToPost(this CreatePostRequest request)
         {
-            return new Project
+            return new Post
             {
                 Id = Guid.NewGuid(),
                 Title = request.Title,
                 Rating = request.Rating,
                 Description = request.Description,
-                Category = request.Category.ToList()
+                Category = request.Category.ToList(),
+                DateAdded = DateTime.UtcNow
             };
         }
 
-        public static ProjectResponse MapToResponse(this Project project)
+        public static PostResponse MapToResponse(this Post post)
         {
-            return new ProjectResponse
+            return new PostResponse
             {
-                Id = project.Id,
-                Title = project.Title,
-                Rating = project.Rating,
-                Description = project.Description,
-                Category = project.Category
+                Id = post.Id,
+                Title = post.Title,
+                Rating = post.Rating,
+                Description = post.Description,
+                Category = post.Category,
+                DateAdded = post.DateAdded
             };
         }
-        public static ProjectsResponse MapToResponse(this IEnumerable<Project> projects)
+        public static PostsResponse MapToResponse(this IEnumerable<Post> posts)
         {
-            return new ProjectsResponse
+            return new PostsResponse
             {
-                Items = projects.Select(MapToResponse)
+                Items = posts.Select(MapToResponse)
             };
         }
-        public static Project MapToProject(this UpdateProjectRequest request, Guid id)
+        public static Post MapToPost(this UpdatePostRequest request, Guid id)
         {
-            return new Project
+            return new Post
             {
                 Id = id,
                 Title = request.Title,
                 Rating = request.Rating,
                 Description = request.Description,
-                Category = request.Category.ToList()
+                Category = request.Category.ToList(),
+                DateAdded = DateTime.UtcNow
             };
         }
     }

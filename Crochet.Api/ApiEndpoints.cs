@@ -4,9 +4,9 @@ namespace Crochet.Api
     {
         private const string ApiBase = "api";
 
-        public static class Projects
+        public static class Posts
         {
-            private const string Base = $"{ApiBase}/projects";
+            private const string Base = $"{ApiBase}/posts";
             public const string Create = Base;
             public const string Get = $"{Base}/{{id:guid}}";
             public const string GetAll = Base;

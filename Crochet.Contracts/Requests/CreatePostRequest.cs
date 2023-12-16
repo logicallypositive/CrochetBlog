@@ -1,8 +1,7 @@
-namespace Crochet.Contracts.Responses
+namespace Crochet.Contracts.Requests
 {
-    public class ProjectResponse
+    public class CreatePostRequest
     {
-        public required Guid Id { get; init; }
         public required string Title { get; init; }
         public required string Description { get; init; }
         public required IEnumerable<string> Category { get; init; } = Enumerable.Empty<string>();
@@ -10,4 +9,3 @@ namespace Crochet.Contracts.Responses
     }
 
 }
-
