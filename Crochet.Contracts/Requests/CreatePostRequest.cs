@@ -7,5 +7,4 @@ namespace Crochet.Contracts.Requests
         public required IEnumerable<string> Category { get; init; } = Enumerable.Empty<string>();
         public required int Rating { get; init; }
     }
-
 }

@@ -12,8 +12,6 @@ namespace Crochet.Api
             public const string GetAll = Base;
             public const string Update = $"{Base}/{{id:guid}}";
             public const string Delete = $"{Base}/{{id:guid}}";
-
         }
-
     }
 }

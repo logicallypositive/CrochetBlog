@@ -10,5 +10,6 @@ namespace Crochet.Application.Repositories
         Task<IEnumerable<Post>> GetAllAsync();
         Task<bool> UpdateAsync(Post post);
         Task<bool> DeleteByIdAsync(Guid id);
+        Task<bool> ExistsByIdAsync(Guid id);
     }
 }

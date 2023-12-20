@@ -12,7 +12,7 @@ namespace Crochet.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreatePostRequest request)
         {
             var post = request.MapToPost();
-            await postRepository.CreateAsync(post);
+            await postRepository.CreateAsync(post); //CreateAsync(post); //CreateAsync(post);
             return Created($"/{ApiEndpoints.Posts.Create}{post.Id}", post);
         }
 

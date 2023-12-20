@@ -27,7 +27,7 @@ namespace Crochet.Api.Mapping
                 Title = post.Title,
                 Rating = post.Rating,
                 Description = post.Description,
-                Category = post.Category,
+                Category = post.Category.ToList(),
                 DateAdded = post.DateAdded
             };
         }
