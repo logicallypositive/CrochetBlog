@@ -1,14 +1,13 @@
 using Crochet.Application.Models;
 
-namespace Crochet.Application.Repositories
+namespace Crochet.Application.Services
 {
-    public interface IPostRepository
+    public interface IPostService
     {
         Task<bool> CreateAsync(Post post);
         Task<Post?> GetByIdAsync(Guid id);
         Task<IEnumerable<Post>> GetAllAsync();
-        Task<bool> UpdateAsync(Post post);
+        Task<Post?> UpdateAsync(Post post);
         Task<bool> DeleteByIdAsync(Guid id);
-        Task<bool> ExistsByIdAsync(Guid id);
     }
 }

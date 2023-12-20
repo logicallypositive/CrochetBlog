@@ -1,5 +1,6 @@
 using Crochet.Application.Database;
 using Crochet.Application.Repositories;
+using Crochet.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Crochet.Application
@@ -9,6 +10,7 @@ namespace Crochet.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddSingleton<IPostRepository, PostRepository>();
+            services.AddSingleton<IPostService, PostService>();
             return services;
         }
 
