@@ -1,23 +1,25 @@
-
+# Crochet
 
 ## Architecture
 
 Crochet.Api
+
 - Responsible for things API specific
 - Authentication/Authorization
 - Documentation
 - HealthCheck endpoints
 
 Crochet.Application
-- Agnostic of API 
+
+- Agnostic of API
 - Contains business logic
 
 Crochet.Contracts
+
 - Api contracts
 - Can publish as a nuget package
 - Useful for anyone with anyone who wants to use the api
 - Always in sync with exposed endpoints
-
 
 ## Create
 
@@ -47,8 +49,8 @@ dotnet add Crochet.Application package Dapper --version 2.1.24
 
 rm Crochet.Contracts/Class1.cs
 rm Crochet.Application/Class1.cs
-rm Crochet.Api/WeatherForecast.cs 
-rm Crochet.Api/Controllers/WeatherForecastController.cs 
+rm Crochet.Api/WeatherForecast.cs
+rm Crochet.Api/Controllers/WeatherForecastController.cs
 rm Crochet.Api/Crochet.Api.http
 
 ### Contracts stuff
