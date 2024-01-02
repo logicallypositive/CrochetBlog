@@ -84,6 +84,12 @@ touch Crochet.Api/ApiEndpoints.cs
 mkdir Crochet.Api/Mapping
 touch Crochet.Api/Mapping/ContractMapping.cs
 
-## Connecting to postgres
+## Database
+
+### Running postgres via docker compose
+
+docker-compose up -d
+
+### Connecting to postgres
 
 - psql -h localhost -p 5432 -U your_username -d postgres
