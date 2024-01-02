@@ -1,6 +1,7 @@
 using Crochet.Application.Database;
 using Crochet.Application.Repositories;
 using Crochet.Application.Services;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Crochet.Application;
@@ -11,6 +12,7 @@ public static class ApplicationServiceCollectionExtensions
     {
         services.AddSingleton<IPostRepository, PostRepository>();
         services.AddSingleton<IPostService, PostService>();
+        services.AddValidatorsFromAssemblyContaining<IApplicationMarker>(ServiceLifetime.Singleton);
         return services;
     }
 

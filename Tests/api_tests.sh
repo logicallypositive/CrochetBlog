@@ -57,7 +57,7 @@ validate() {
 		-H 'Content-Type: application/json' \
 		-d '{
         "Rating": 7,
-        "Title": "Coaster",
+        "Title": "",
         "Description": "Super Cute",
         "Category": ["Home", "Useful"]
     }' | jq

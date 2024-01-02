@@ -58,6 +58,7 @@ dotnet add Crochet.Api reference ./Crochet.Application ./Crochet.Contracts
 dotnet add Crochet.Application package Microsoft.Extensions.DependencyInjection.Abstractions --version 8.0.0
 dotnet add Crochet.Application package Npgsql --version 8.0.1
 dotnet add Crochet.Application package Dapper --version 2.1.24
+dotnet add Crochet.Application package FluentValidation.DependencyInjectionExtensions --version 11.9.0
 
 ### Cleaning Projects
 
@@ -131,6 +132,7 @@ touch Crochet.Api/ApiEndpoints.cs
 
 mkdir Crochet.Api/Mapping
 touch Crochet.Api/Mapping/ContractMapping.cs
+touch Crochet.Api/Mapping/ValidationMappingMiddleware.cs
 
 ## Postgres
 
