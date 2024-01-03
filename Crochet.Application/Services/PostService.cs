@@ -7,36 +7,36 @@ namespace Crochet.Application.Services;
 public class PostService(IPostRepository postRepository, IValidator<Post> postValidator)
     : IPostService
 {
-    public async Task<bool> CreateAsync(Post post)
+    public async Task<bool> CreateAsync(Post post, CancellationToken token = default)
     {
-        await postValidator.ValidateAndThrowAsync(post);
-        return await postRepository.CreateAsync(post);
+        await postValidator.ValidateAndThrowAsync(post, cancellationToken: token);
+        return await postRepository.CreateAsync(post, token);
     }
 
-    public Task<Post?> GetByIdAsync(Guid id)
+    public Task<Post?> GetByIdAsync(Guid id, CancellationToken token = default)
     {
-        return postRepository.GetByIdAsync(id);
+        return postRepository.GetByIdAsync(id, token);
     }
 
-    public Task<IEnumerable<Post>> GetAllAsync()
+    public Task<IEnumerable<Post>> GetAllAsync(CancellationToken token = default)
     {
-        return postRepository.GetAllAsync();
+        return postRepository.GetAllAsync(token);
     }
 
-    public async Task<Post?> UpdateAsync(Post post)
+    public async Task<Post?> UpdateAsync(Post post, CancellationToken token = default)
     {
-        await postValidator.ValidateAndThrowAsync(post);
-        var postExists = await postRepository.ExistsByIdAsync(post.Id);
+        await postValidator.ValidateAndThrowAsync(post, cancellationToken: token);
+        var postExists = await postRepository.ExistsByIdAsync(post.Id, token);
         if (!postExists)
         {
             return null;
         }
-        await postRepository.UpdateAsync(post);
+        await postRepository.UpdateAsync(post, token);
         return post;
     }
 
-    public Task<bool> DeleteByIdAsync(Guid id)
+    public Task<bool> DeleteByIdAsync(Guid id, CancellationToken token = default)
     {
-        return postRepository.DeleteByIdAsync(id);
+        return postRepository.DeleteByIdAsync(id, token);
     }
 }

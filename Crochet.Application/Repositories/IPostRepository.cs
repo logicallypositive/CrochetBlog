@@ -4,10 +4,10 @@ namespace Crochet.Application.Repositories;
 
 public interface IPostRepository
 {
-    Task<bool> CreateAsync(Post post);
-    Task<Post?> GetByIdAsync(Guid id);
-    Task<IEnumerable<Post>> GetAllAsync();
-    Task<bool> UpdateAsync(Post post);
-    Task<bool> DeleteByIdAsync(Guid id);
-    Task<bool> ExistsByIdAsync(Guid id);
+    Task<bool> CreateAsync(Post post, CancellationToken token = default);
+    Task<Post?> GetByIdAsync(Guid id, CancellationToken token = default);
+    Task<IEnumerable<Post>> GetAllAsync(CancellationToken token = default);
+    Task<bool> UpdateAsync(Post post, CancellationToken token = default);
+    Task<bool> DeleteByIdAsync(Guid id, CancellationToken token = default);
+    Task<bool> ExistsByIdAsync(Guid id, CancellationToken token = default);
 }

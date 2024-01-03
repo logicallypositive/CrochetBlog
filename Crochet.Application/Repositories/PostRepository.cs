@@ -6,9 +6,9 @@ namespace Crochet.Application.Repositories;
 
 public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRepository
 {
-    public async Task<bool> CreateAsync(Post post)
+    public async Task<bool> CreateAsync(Post post, CancellationToken token = default)
     {
-        using var connection = await dbConnectionFactory.CreateConnectionAsync();
+        using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
         using var transaction = connection.BeginTransaction();
 
         var sql1 = """
@@ -16,7 +16,9 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                 VALUES (@Id, @Title, @Description, @Rating, @DateAdded)
                 """;
 
-        int result = await connection.ExecuteAsync(new CommandDefinition(sql1, post));
+        int result = await connection.ExecuteAsync(
+            new CommandDefinition(sql1, post, cancellationToken: token)
+        );
 
         if (result > 0)
         {
@@ -27,7 +29,11 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                         VALUES (@PostId, @Name)
                         """;
                 await connection.ExecuteAsync(
-                    new CommandDefinition(sql2, new { PostId = post.Id, Name = category })
+                    new CommandDefinition(
+                        sql2,
+                        new { PostId = post.Id, Name = category },
+                        cancellationToken: token
+                    )
                 );
             }
         }
@@ -36,9 +42,9 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
         return result > 0;
     }
 
-    public async Task<Post?> GetByIdAsync(Guid id)
+    public async Task<Post?> GetByIdAsync(Guid id, CancellationToken token = default)
     {
-        using var connection = await dbConnectionFactory.CreateConnectionAsync();
+        using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
         var sql1 = """
                 SELECT id, title, description, rating, date_added AS dateAdded
                 FROM posts
@@ -46,7 +52,7 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                 """;
 
         var post = await connection.QuerySingleOrDefaultAsync<Post>(
-            new CommandDefinition(sql1, new { id })
+            new CommandDefinition(sql1, new { id }, cancellationToken: token)
         );
 
         if (post is null)
@@ -61,7 +67,7 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                 """;
 
         var categories = await connection.QueryAsync<string>(
-            new CommandDefinition(sql2, new { id })
+            new CommandDefinition(sql2, new { id }, cancellationToken: token)
         );
 
         foreach (var category in categories)
@@ -72,9 +78,9 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
         return post;
     }
 
-    public async Task<IEnumerable<Post>> GetAllAsync()
+    public async Task<IEnumerable<Post>> GetAllAsync(CancellationToken token = default)
     {
-        using var connection = await dbConnectionFactory.CreateConnectionAsync();
+        using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
 
         var sql1 = """
                 SELECT p.*, string_agg(c.name, ',') AS categories
@@ -82,7 +88,9 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                 LEFT JOIN categories c ON p.id = c.postid
                 GROUP BY id
                 """;
-        var result = await connection.QueryAsync(new CommandDefinition(sql1));
+        var result = await connection.QueryAsync(
+            new CommandDefinition(sql1, cancellationToken: token)
+        );
 
         return result.Select(
             x =>
@@ -98,16 +106,18 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
         );
     }
 
-    public async Task<bool> UpdateAsync(Post post)
+    public async Task<bool> UpdateAsync(Post post, CancellationToken token = default)
     {
-        using var connection = await dbConnectionFactory.CreateConnectionAsync();
+        using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
         using var transaction = connection.BeginTransaction();
 
         var sql1 = """
                 DELETE FROM categories 
                 WHERE postid = @id
                 """;
-        await connection.ExecuteAsync(new CommandDefinition(sql1, new { id = post.Id }));
+        await connection.ExecuteAsync(
+            new CommandDefinition(sql1, new { id = post.Id }, cancellationToken: token)
+        );
 
         foreach (var category in post.Category)
         {
@@ -116,7 +126,11 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                     VALUES (@PostId, @Name)
                     """;
             await connection.ExecuteAsync(
-                new CommandDefinition(sql2, new { PostId = post.Id, Name = category })
+                new CommandDefinition(
+                    sql2,
+                    new { PostId = post.Id, Name = category },
+                    cancellationToken: token
+                )
             );
         }
 
@@ -126,42 +140,50 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                 WHERE id = @Id
                 """;
 
-        var result = await connection.ExecuteAsync(new CommandDefinition(sql3, post));
+        var result = await connection.ExecuteAsync(
+            new CommandDefinition(sql3, post, cancellationToken: token)
+        );
 
         transaction.Commit();
 
         return result > 0;
     }
 
-    public async Task<bool> DeleteByIdAsync(Guid id)
+    public async Task<bool> DeleteByIdAsync(Guid id, CancellationToken token = default)
     {
-        using var connection = await dbConnectionFactory.CreateConnectionAsync();
+        using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
         using var transaction = connection.BeginTransaction();
 
         var sql1 = """
                 DELETE FROM categories
                 WHERE postid = @id
                 """;
-        await connection.ExecuteAsync(new CommandDefinition(sql1, new { id }));
+        await connection.ExecuteAsync(
+            new CommandDefinition(sql1, new { id }, cancellationToken: token)
+        );
 
         var sql2 = """
                 DELETE FROM posts
                 WHERE id = @id
                 """;
-        var result = await connection.ExecuteAsync(new CommandDefinition(sql2, new { id }));
+        var result = await connection.ExecuteAsync(
+            new CommandDefinition(sql2, new { id }, cancellationToken: token)
+        );
 
         transaction.Commit();
         return result > 0;
     }
 
-    public async Task<bool> ExistsByIdAsync(Guid id)
+    public async Task<bool> ExistsByIdAsync(Guid id, CancellationToken token = default)
     {
-        using var connection = await dbConnectionFactory.CreateConnectionAsync();
+        using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
         var sql1 = """
                 SELECT COUNT(1) 
                 FROM posts
                 WHERE id = @id
                 """;
-        return await connection.ExecuteScalarAsync<bool>(new CommandDefinition(sql1, new { id }));
+        return await connection.ExecuteScalarAsync<bool>(
+            new CommandDefinition(sql1, new { id }, cancellationToken: token)
+        );
     }
 }
