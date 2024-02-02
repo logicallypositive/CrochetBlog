@@ -1,0 +1,234 @@
+[
+  {
+    "Title": "Strawberry Shortcake Hat",
+    "Description": "A cute crochet hat I made for myself.",
+    "Rating": 5,
+    "user": "CrochetQueen",
+    "ImageUrl": "crochet-projects/crochetqueen/strawberry.png",
+    "status": "completed",
+    "steps": [
+      {
+        "ImageUrl": "crochet-projects/crochetqueen/strawberry1.png",
+        "description": "Crochet a flat circle base."
+      },
+      {
+        "ImageUrl": "crochet-projects/crochetqueen/strawberry2.png",
+        "description": "Build wavy hat walls."
+      },
+      {
+        "ImageUrl": "crochet-projects/crochetqueen/strawberry3.png",
+        "description": "Stitch a basic leaf."
+      },
+      {
+        "ImageUrl": "crochet-projects/crochetqueen/strawberry4.png",
+        "description": "Attach leaves around the top."
+      },
+      {
+        "ImageUrl": "crochet-projects/crochetqueen/strawberry5.png",
+        "description": "Behold your berry cute hat!"
+      },
+      {
+        "ImageUrl": "crochet-projects/crochetqueen/strawberry6.png",
+        "description": "Rock it and share the sweetness!"
+      }
+    ],
+    "Category": ["hat", "clothing", "fruit", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Octopus",
+    "Description": "A cute crochet octopus I made for my family.",
+    "Rating": 5,
+    "user": "CrochetQueen",
+    "ImageUrl": "crochet-projects/crochetqueen/octo.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["toy", "animal", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Coasters",
+    "Description": "Cute crochet coasters I made for me and my partner.",
+    "Rating": 4,
+    "user": "CrochetQueen",
+    "ImageUrl": "crochet-projects/crochetqueen/coasters.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["coaster", "home", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Leg Warmers",
+    "Description": "Leg warmers I'm making for my trip to Chicago.",
+    "Rating": 2,
+    "user": "CrochetQueen",
+    "ImageUrl": null,
+    "status": "in-progress",
+    "steps": [],
+    "Category": ["clothing", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Strawberry Seatbelt Cover",
+    "Description": "A cute crochet seatbelt cover my friend's car.",
+    "Rating": 3,
+    "user": "CrochetQueen",
+    "ImageUrl": "crochet-projects/crochetqueen/seatbeltcover.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["car", "fruit", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Luffy Hat",
+    "Description": "A cute crochet hat I made for my partner.",
+    "Rating": 5,
+    "user": "CrochetQueen",
+    "ImageUrl": "crochet-projects/crochetqueen/luffyhat.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["cute", "hat", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Hearts",
+    "Description": "First every thing i made",
+    "Rating": 5,
+    "user": "CrochetQueen",
+    "ImageUrl": "crochet-projects/crochetqueen/smallhearts.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["cute", "nostalgic", "crochet"],
+    "isFavorited": false
+  },{
+    "Title": "Mountain Landscape Scarf",
+    "Description": "A scarf depicting a mountain landscape, perfect for winter.",
+    "Rating": 4,
+    "user": "StitchExplorer",
+    "ImageUrl": "crochet-projects/stitchexplorer/mountainscarf.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["scarf", "landscape", "winter", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Sunflower Pot Holders",
+    "Description": "Bright sunflower pot holders for the kitchen.",
+    "Rating": 5,
+    "user": "YarnSunshine",
+    "ImageUrl": "crochet-projects/yarnsunshine/sunflowerpotholders.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["kitchen", "sunflower", "crochet"],
+    "isFavorited": true
+  },
+  {
+    "Title": "Underwater Scene Blanket",
+    "Description": "A blanket with a beautiful underwater scene, including corals and fish.",
+    "Rating": 5,
+    "user": "DeepSeaStitches",
+    "ImageUrl": "crochet-projects/deepseastitches/underwaterblanket.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["blanket", "underwater", "home", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Amigurumi Turtle",
+    "Description": "A small, cute amigurumi turtle for decoration.",
+    "Rating": 3,
+    "user": "AmiArtist",
+    "ImageUrl": "crochet-projects/amiartist/turtle.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["amigurumi", "animal", "decoration", "crochet"],
+    "isFavorited": true
+  },
+  {
+    "Title": "Festive Christmas Stocking",
+    "Description": "A festive stocking for the Christmas season, with intricate patterns.",
+    "Rating": 4,
+    "user": "HolidayHooker",
+    "ImageUrl": "crochet-projects/holidayhooker/christmasstocking.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["christmas", "holiday", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Cactus Pincushion",
+    "Description": "A practical yet adorable cactus-themed pincushion.",
+    "Rating": 5,
+    "user": "ThornyThreads",
+    "ImageUrl": "crochet-projects/thornythreads/cactuspincushion.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["pincushion", "cactus", "crochet"],
+    "isFavorited": true
+  },  {
+    "Title": "Desert Sunset Shawl",
+    "Description": "A shawl inspired by desert sunsets, with warm tones.",
+    "Rating": 4,
+    "user": "StitchExplorer",
+    "ImageUrl": "crochet-projects/stitchexplorer/desertsunsetshawl.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["shawl", "desert", "sunset", "crochet"],
+    "isFavorited": true
+  },
+  {
+    "Title": "Lemon Slice Coasters",
+    "Description": "Bright and fresh lemon slice coasters for summer.",
+    "Rating": 5,
+    "user": "YarnSunshine",
+    "ImageUrl": "crochet-projects/yarnsunshine/lemonscoasters.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["coasters", "lemon", "summer", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Jellyfish Mobile",
+    "Description": "Colorful crochet jellyfish mobile for a baby's room.",
+    "Rating": 5,
+    "user": "DeepSeaStitches",
+    "ImageUrl": "crochet-projects/deepseastitches/jellyfishmobile.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["mobile", "jellyfish", "baby room", "crochet"],
+    "isFavorited": true
+  },
+  {
+    "Title": "Amigurumi Fox",
+    "Description": "A charming little fox made using the amigurumi technique.",
+    "Rating": 4,
+    "user": "AmiArtist",
+    "ImageUrl": "crochet-projects/amiartist/amifox.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["amigurumi", "fox", "animal", "crochet"],
+    "isFavorited": false
+  },
+  {
+    "Title": "Halloween Pumpkin Garland",
+    "Description": "A festive garland featuring crochet pumpkins for Halloween.",
+    "Rating": 4,
+    "user": "HolidayHooker",
+    "ImageUrl": "crochet-projects/holidayhooker/pumpkingarland.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["halloween", "pumpkin", "garland", "crochet"],
+    "isFavorited": true
+  },
+  {
+    "Title": "Succulent Garden",
+    "Description": "A crochet succulent garden that requires no watering.",
+    "Rating": 5,
+    "user": "ThornyThreads",
+    "ImageUrl": "crochet-projects/thornythreads/succulentgarden.png",
+    "status": "completed",
+    "steps": [],
+    "Category": ["succulents", "garden", "home decor", "crochet"],
+    "isFavorited": false
+  }
+]

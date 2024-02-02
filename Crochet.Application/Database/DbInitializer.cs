@@ -14,7 +14,8 @@ public class DbInitializer(IDbConnectionFactory dbConnectionFactory)
                 title TEXT NOT NULL,
                 description TEXT NOT NULL,
                 rating INTEGER NOT NULL,
-                date_added DATE NOT NULL);
+                date_added DATE NOT NULL,
+                image_url TEXT NOT NULL);
             """;
         await connection.ExecuteAsync(sql1);
 

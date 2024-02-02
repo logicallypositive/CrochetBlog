@@ -12,8 +12,8 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
         using var transaction = connection.BeginTransaction();
 
         var sql1 = """
-                INSERT INTO posts (id, title, description, rating, date_added)
-                VALUES (@Id, @Title, @Description, @Rating, @DateAdded)
+                INSERT INTO posts (id, title, description, rating, date_added, image_url)
+                VALUES (@Id, @Title, @Description, @Rating, @DateAdded, @ImageUrl)
                 """;
 
         int result = await connection.ExecuteAsync(
@@ -46,7 +46,7 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
     {
         using var connection = await dbConnectionFactory.CreateConnectionAsync(token);
         var sql1 = """
-                SELECT id, title, description, rating, date_added AS dateAdded
+                SELECT id, title, description, rating, date_added, image_url AS dateAdded
                 FROM posts
                 WHERE id = @id
                 """;
@@ -101,7 +101,8 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
                     Description = x.description,
                     Rating = x.rating,
                     DateAdded = x.date_added,
-                    Category = Enumerable.ToList(x.categories.Split(','))
+                    Category = Enumerable.ToList(x.categories.Split(',')),
+                    ImageUrl = x.image_url
                 }
         );
     }
@@ -136,7 +137,7 @@ public class PostRepository(IDbConnectionFactory dbConnectionFactory) : IPostRep
 
         var sql3 = """
                 UPDATE posts
-                SET title=@Title, description=@Description, rating=@Rating, date_added=@DateAdded
+                SET title=@Title, description=@Description, rating=@Rating, date_added=@DateAdded, image_url=@ImageUrl
                 WHERE id = @Id
                 """;
 

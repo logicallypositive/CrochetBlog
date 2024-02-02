@@ -6,6 +6,14 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
 // Add services to the container.
+// CORS
+builder.Services.AddCors(opt => 
+{
+    opt.AddPolicy("CorsPolicy", policy => 
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+    });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -15,8 +23,8 @@ builder.Services.AddDatabase(config["Database:ConnectionString"]!);
 
 WebApplication app = builder.Build();
 
-app.UseHttpsRedirection();
 
+app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.UseMiddleware<ValidationMappingMiddleware>();

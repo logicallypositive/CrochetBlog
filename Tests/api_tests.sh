@@ -12,6 +12,7 @@ create() {
         "Title": "Coaster",
         "Description": "Super Cute",
         "Category": ["Home", "Useful"]
+	"ImageUrl": "crochet-projects/strawberry.png"
     }' | jq
 }
 

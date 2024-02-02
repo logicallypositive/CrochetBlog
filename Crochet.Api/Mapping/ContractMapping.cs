@@ -15,7 +15,8 @@ public static class ContractMapping
             Rating = request.Rating,
             Description = request.Description,
             Category = request.Category.ToList(),
-            DateAdded = DateTime.UtcNow
+            DateAdded = DateTime.UtcNow,
+            ImageUrl = request.ImageUrl
         };
     }
 
@@ -28,7 +29,8 @@ public static class ContractMapping
             Rating = post.Rating,
             Description = post.Description,
             Category = post.Category.ToList(),
-            DateAdded = post.DateAdded
+            DateAdded = post.DateAdded,
+            ImageUrl = post.ImageUrl
         };
     }
 
@@ -46,7 +48,8 @@ public static class ContractMapping
             Rating = request.Rating,
             Description = request.Description,
             Category = request.Category.ToList(),
-            DateAdded = DateTime.UtcNow
+            DateAdded = DateTime.UtcNow,
+            ImageUrl = request.ImageUrl
         };
     }
 }

@@ -8,4 +8,5 @@ public class Post
     public required int Rating { get; set; }
     public required List<string> Category { get; init; } = new();
     public required DateTime DateAdded { get; set; }
+    public required string ImageUrl { get; set; }
 }
